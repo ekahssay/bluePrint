@@ -13,6 +13,7 @@ import java.awt.Component;
 import javax.swing.JSeparator;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -20,7 +21,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-public class GUI extends JFrame {
+public class GUI extends JFrame implements ActionListener{
 
 	private ArrayList<Card> cards;
 	private JPanel contentPane;
@@ -79,20 +80,15 @@ public class GUI extends JFrame {
 		lblPros.setFont(font);
 		contentPane.add(lblName);
 		
-		btnSubmitPros = new JButton("Submit Pros");
-		btnSubmitPros.setBounds(65, 226, 89, 23);
-		contentPane.add(btnSubmitPros);
-		
-		btnSubmitCons = new JButton("Submit Cons");
-		btnSubmitCons.setBounds(285, 226, 89, 23);
-		contentPane.add(btnSubmitCons);
 		
 		btnSubmitCard = new JButton("Submit Card");
 		btnSubmitCard.setBounds(172, 226, 89, 23);
+		btnSubmitCard.addActionListener(this);
 		contentPane.add(btnSubmitCard);
 		
 		btnStop = new JButton("STAHP");
 		btnStop.setBounds(335, 11, 89, 23);
+		btnStop.addActionListener(this);
 		contentPane.add(btnStop);
 	}
 	
@@ -107,7 +103,9 @@ public class GUI extends JFrame {
 			String cons = txtCons.getText();
 			
 			Card card = new Card(name, pros, cons, cards.size());
+			System.out.println(card);
 			cards.add(card);
+			System.out.println(cards);
 			
 			txtPros.setText("");
 			txtCons.setText("");
