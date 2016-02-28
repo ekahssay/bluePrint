@@ -21,7 +21,7 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-public class GUI extends JFrame implements ActionListener{
+public class GUI extends JFrame implements ActionListener, displayInterface{
 
 	private ArrayList<Card> cards;
 	private JPanel contentPane;
@@ -116,8 +116,13 @@ public class GUI extends JFrame implements ActionListener{
 //					txtField.getText().compareTo("") != 0 ||)
 //				JOptionPane.
 			Collections.shuffle(cards);
-			UserSort userSort = new UserSort(cards);
+			UserSort userSort = new UserSort(cards,this);
 		}
+	}
+	
+	public int compare(int index1, int index2){
+		
+		return 0;
 	}
 
 	/**

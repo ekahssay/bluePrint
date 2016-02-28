@@ -15,7 +15,7 @@ public class UserSort {
     HashMap<Card,ArrayList<Card>> cardComparsions;
     displayInterface display;
 
-    public UserSort(ArrayList<Card> cards){
+    public UserSort(ArrayList<Card> cards, displayInterface display){
         this.cards = cards;
         this.display = display;
         cards = modfiedMergeSort(cards);
