@@ -5,5 +5,5 @@ import java.util.ArrayList;
  */
 public interface displayInterface {
     public int compare(int index1, int index2);
-    public void display(ArrayList<card> sortedCards);
+    public void display(ArrayList<Card> sortedCards);
 }

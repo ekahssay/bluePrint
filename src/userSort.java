@@ -8,24 +8,24 @@ import java.util.Random;
  * */
 
 
-public class userSort {
-    ArrayList<card> cards;
-    HashMap<card,ArrayList<card>> cardComparsions;
+public class UserSort {
+    ArrayList<Card> cards;
+    HashMap<Card,ArrayList<Card>> cardComparsions;
     displayInterface display;
 
-    public userSort(ArrayList<card> cards){
+    public UserSort(ArrayList<Card> cards){
         this.cards = cards;
         this.display = display;
         cards = modfiedMergeSort(cards);
         display.display(cards);
     }
 
-    private ArrayList<card> modfiedMergeSort(ArrayList <card> sort) {
+    private ArrayList<Card> modfiedMergeSort(ArrayList <Card> sort) {
         if(sort.size() == 0 || sort.size() ==1){
             return sort;
         }
-        ArrayList<card> leftHalf = new ArrayList<card>();
-        ArrayList<card> rightHalf = new ArrayList<card>();
+        ArrayList<Card> leftHalf = new ArrayList<Card>();
+        ArrayList<Card> rightHalf = new ArrayList<Card>();
         int leftHalfSize = sort.size()/2;
         int rightHalfSize = sort.size() - leftHalfSize;
         for(int i = 0; i< leftHalfSize; i++)
@@ -40,14 +40,14 @@ public class userSort {
         return combine(leftHalf,rightHalf);
     }
 
-    private ArrayList<card> combine(ArrayList<card> leftHalf, ArrayList<card> rightHalf) {
-        ArrayList<card> combined = new ArrayList<card> ();
+    private ArrayList<Card> combine(ArrayList<Card> leftHalf, ArrayList<Card> rightHalf) {
+        ArrayList<Card> combined = new ArrayList<Card> ();
         int i = 0;
         int j = 0;
         Random color = new Random();
         while(i < leftHalf.size() && j <rightHalf.size()){
-            card leftCard = leftHalf.get(i);
-            card rightCard  = rightHalf.get(j);
+            Card leftCard = leftHalf.get(i);
+            Card rightCard  = rightHalf.get(j);
             int red = color.nextInt(266);
             int blue = color.nextInt(266);
             int green = color.nextInt(266);
@@ -69,9 +69,7 @@ public class userSort {
                 combined.add(rightCard);
             }
         }
+        return combined;
     }
 
-    private void mergeSorted(int lower, int middle, int higher) {
-        for()
-    }
 }
