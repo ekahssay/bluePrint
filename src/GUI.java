@@ -1,3 +1,5 @@
+package bluePrint.src;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
@@ -11,6 +13,8 @@ import java.awt.Component;
 import javax.swing.JSeparator;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
+import java.util.Collections;
 
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -18,7 +22,7 @@ import javax.swing.JButton;
 
 public class GUI extends JFrame {
 
-	private ArrayList<Card>() cards;
+	private ArrayList<Card> cards;
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTextArea txtPros;
@@ -93,16 +97,16 @@ public class GUI extends JFrame {
 	}
 	
 	public void actionPerformed(ActionEvent e){
-		if(e.getSource() == btnSubmitPros){
-			String pros = txtPros.getText();
-		}else if(e.getSource() == btnSubmitCons){
-			String cons = txtCons.getText();
-		}else if(e.getSource() == btnSubmitCard){
+//		if(e.getSource() == btnSubmitPros){
+//			String pros = txtPros.getText();
+//		}else if(e.getSource() == btnSubmitCons){
+//			String cons = txtCons.getText();
+		if(e.getSource() == btnSubmitCard){
 			String name = textField.getText();
 			String pros = txtPros.getText();
 			String cons = txtCons.getText();
 			
-			Card card = new Card(name, pros, cons);
+			Card card = new Card(name, pros, cons, cards.size());
 			cards.add(card);
 			
 			txtPros.setText("");
@@ -113,7 +117,8 @@ public class GUI extends JFrame {
 //					txtCons.getText().compareTo("") != 0 ||
 //					txtField.getText().compareTo("") != 0 ||)
 //				JOptionPane.
-			
+			Collections.shuffle(cards);
+			UserSort userSort = new UserSort(cards);
 		}
 	}
 
